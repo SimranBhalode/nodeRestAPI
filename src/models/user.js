@@ -4,6 +4,7 @@ class User {
     this.id = id;
     this.username = username;
     this.email = email;
+    this.phone = phone;
     this.role = role;
     this.created = new Date();
     this.lastLogin = null;
@@ -28,6 +29,7 @@ class User {
       id: this.id,
       username: this.username,
       email: this.email,
+      phone: this.phone,
       role: this.role,
       created: this.created,
       lastLogin: this.lastLogin
