@@ -10,7 +10,7 @@ const getAllProducts = (req, res) => {
     const products = db.getProducts();
     res.json(products);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch products' });
+    res.status(500).json({ error: 'Failed to fetch products list' });
   }
 };
 
@@ -22,7 +22,7 @@ const getProductById = (req, res) => {
   const product = db.findProductById(productId);
 
   if (!product) {
-    return res.status(404).json({ error: 'Product not found' });
+    return res.status(404).json({ error: 'Product not found, please try again later' });
   }
 
   res.json(product);
@@ -51,7 +51,7 @@ const updateProduct = (req, res) => {
   const product = db.findProductById(productId);
   // Missing null check - could cause error on next line
   if (!product) {
-    return res.status(404).json({ error: 'Product not found' });
+    return res.status(404).json({ error: 'Product not found, please check the id is correct' });
   }
 
   const updates = {};
